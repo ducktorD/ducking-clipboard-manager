@@ -1,6 +1,8 @@
-# Ducking Clipboard Manager
+# 🐣 Ducking Clipboard Manager 🦆
 
 ## Links:
+
+* https://www.electronjs.org/ (Official docs)
 
 * https://github.com/electron/electron/issues/5107
 
@@ -9,8 +11,6 @@
 * https://medium.com/@devesu/how-to-build-a-react-based-electron-app-d0f27413f17f
 
 * https://getstream.io/blog/takeaways-on-building-a-react-based-app-with-electron/
-
-* https://www.electronjs.org/ (Official docs)
 
 ## To Do:
 

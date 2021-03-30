@@ -1,8 +1,8 @@
 const { app, BrowserWindow, Tray, dialog } = require('electron');
 let path = require('path');
 const isDev = require("electron-is-dev");
-const { electron } = require('process');
 
+// if I would like vibrancy/blur effect for window:
 // https://www.npmjs.com/package/@hxkuc/electron-vibrancy
 
 let win = undefined;
@@ -24,6 +24,9 @@ function createWindow() {
       hasShadow: false,
       movable: false,
    });
+   
+   win.hide();
+   win.setFullScreenable(false);
 
    win.loadURL(
       isDev
@@ -31,20 +34,11 @@ function createWindow() {
          : `file:///${__dirname}/../build/index.html`
    );
 
-   // try {
-   //    app.dock.setIcon('./public/images/app.ico');
-   // } catch (err) {
-   //    console.error('There was an error in loading app icon...', __dirname);
-   //    console.error(err.message);
-   // }
-   
-   win.hide();
-   win.setFullScreenable(false);
-
    trayIcon = isDev 
       ? new Tray(`${path.join(__dirname, "../public/images/icon@1x.png")}`)
       : new Tray(`${path.join(__dirname, "../build/images/icon@1x.png")}`);
 
+   // distinction between dev and prod in tray
    if (isDev) {
       trayIcon.setTitle('Dev');
    }
@@ -67,11 +61,6 @@ function createWindow() {
       browserWindowHidden = true;
    });
 }
-
-// app.dock.setIcon(isDev
-//    ? path.join(__dirname, '../public/images/icon.png')
-//    : path.join(__dirname, '../build/images/icon.png')
-// );
 
 app.whenReady().then(() => {
    try {
