@@ -1,5 +1,7 @@
 # 🐣 Ducking Clipboard Manager 🦆
 
+> React-Electron app for manage clipboard history.
+
 ## Links:
 
 * https://www.electronjs.org/ (Official docs)
@@ -22,3 +24,9 @@
 ## Used Icons:
 
 <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+## Font:
+
+Drama Sans by Chris Griffing:
+    * https://drama-sans.github.io/drama-sans/
+    * https://github.com/drama-sans/drama-sans
