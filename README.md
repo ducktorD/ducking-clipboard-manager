@@ -29,5 +29,5 @@
 
 Drama Sans by Chris Griffing:
 
-https://drama-sans.github.io/drama-sans/
-https://github.com/drama-sans/drama-sans
+* https://drama-sans.github.io/drama-sans/
+* https://github.com/drama-sans/drama-sans
