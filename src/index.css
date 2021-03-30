@@ -1,13 +1,128 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+	font-family: 'Drama Sans';
+	src: url('https://rawgit.com/drama-sans/drama-sans/master/dist/DramaSans.eot'); /* IE9 Compat Modes */
+	src: url('https://rawgit.com/drama-sans/drama-sans/master/dist/DramaSans.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('https://rawgit.com/drama-sans/drama-sans/master/dist/DramaSans.woff2') format('woff2'), /* Super Modern Browsers */
+	url('https://rawgit.com/drama-sans/drama-sans/master/dist/DramaSans.woff') format('woff'), /* Pretty Modern Browsers */
+	url('https://rawgit.com/drama-sans/drama-sans/master/dist/DramaSans.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Drama Sans';
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+	background: rgba(60, 60, 60, 0.9);
+}
+
+html, body, #root {
+	height: 100%;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	padding: .5rem;
+	color: white;
+	text-align: center;
+	background: linear-gradient(75deg, rgba(180, 180, 180, 0.8), rgba(125, 125, 125, 0.8));
+	backdrop-filter: blur(15px);
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background: linear-gradient(75deg, rgba(180, 180, 180, 0.8), rgba(125, 125, 125, 0.8));
+	backdrop-filter: blur(15px);
+
+	display: flex;
+	justify-content: center;
+}
+
+footer .remove-all-button {
+	margin: .5rem;
+	padding: .25rem;
+	color: white;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	transition: all .4s;
+	cursor: pointer;
+}
+
+.App {
+	width: 100%;
+	padding: 55px .75rem 45px;
+	box-sizing: border-box;
+	color: white;
+}
+
+.App h1 {
+	font-size: 1rem;
+	text-align: center;
+}
+
+.App .element {
+	display: flex;
+	flex-direction: column;
+	min-height: 25px;
+	margin: 0 0 .5rem;
+	padding: .5rem;
+	box-sizing: border-box;
+	border-radius: .5rem;
+	background: rgb(220, 220, 220);
+	color: rgb(50, 50, 50);
+}
+
+.App .element pre {
+	font-size: 1rem;
+	white-space: pre-wrap;
+	overflow: auto;
+}
+
+.App .element div {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.App .element div label {
+	margin-top: .8rem;
+	font-size: .8rem;
+}
+
+.App .element div .buttons button {
+	align-self: flex-end;
+	margin: .5rem .5rem 0;
+	margin-right: 0;
+	padding: .25rem;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	outline: none;
+	transition: all .4s;
+	cursor: pointer;
+}
+
+.App .element div .buttons .copy-button {
+	background: rgb(75, 174, 124);
+}
+.App .element div .buttons .copy-button:hover {
+	background: rgb(62, 135, 99);
+}
+.App .element div .buttons .copy-button:active {
+	background: rgb(30, 64, 47);
+}
+
+.App .element div .buttons .remove-button, footer .remove-all-button {
+	background: rgb(174, 75, 75);
+}
+.App .element div .buttons .remove-button:hover, footer .remove-all-button:hover {
+	background: rgb(142, 59, 59);
+}
+.App .element div .buttons .remove-button:active, footer .remove-all-button:active {
+	background: rgb(97, 40, 40);
 }
