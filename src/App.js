@@ -3,7 +3,7 @@ import Element from './Components/Element';
 
 const electron = window.require('electron');
 const remote = electron.remote;
-const { clipboard } = remote;
+const { clipboard, Notification } = remote;
 
 const App = () => {
 	const [history, setHistory] = useState([]);
@@ -30,6 +30,9 @@ const App = () => {
 	useEffect(() => {
 		// console.log(newText);
 		if (newText) {
+			if (history.length > 0 && history[history.length - 1].content === newText) {
+				return;
+			}
 			setHistory([...history, {
 				content: newText,
 				time: new Date()
@@ -40,6 +43,7 @@ const App = () => {
 	// just logging
 	useEffect(() => {
 		console.log(history);
+		// sendNotification();
 	}, [history]);
 
 	// the copied one goes to the top
@@ -66,8 +70,16 @@ const App = () => {
 	}
 
 	const removeAllHistory = () => {
+		clipboard.clear();
 		setHistory([]);
 	}
+
+	// const sendNotification = () => {
+	// 	new Notification({
+	// 		title: 'Ducking Clipboard Manager',
+	// 		body: 'Clipboard was updated!'
+	// 	}).show();
+	// }
 
 	return (
 		<>

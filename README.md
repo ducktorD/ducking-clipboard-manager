@@ -6,6 +6,8 @@
 
 * https://www.electronjs.org/ (Official docs)
 
+* https://www.electron.build/configuration/mac
+
 * https://github.com/electron/electron/issues/5107
 
 * https://medium.com/folkdevelopers/the-ultimate-guide-to-electron-with-react-8df8d73f4c97
@@ -17,9 +19,10 @@
 ## To Do:
 
 * [x] App default icon.
-* [ ] Right click on tray icon should give a menu with quit opportunity.
-* [ ] Define minimum and maximum window size.
-* [ ] Copy and Remove button wrapping.
+* [ ] ~~Right click on tray icon should give a menu with quit opportunity.~~
+* [x] Define minimum and maximum window size.
+* [ ] ~~Copy and Remove button wrapping.~~ (Window size corrected it)
+* [ ] Add sample photos to README.
 
 ## Used Icons:
 
