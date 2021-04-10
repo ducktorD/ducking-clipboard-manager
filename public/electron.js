@@ -41,9 +41,9 @@ function createWindow() {
          devTools: isDev ? true : false,
       },
       transparent: true,
-      frame: false,
+      frame: currentPlatform !== 'MAC',
       hasShadow: false,
-      movable: false,
+      movable: currentPlatform !== 'MAC',
       alwaysOnTop: true,
       fullscreenable: false,
    });
