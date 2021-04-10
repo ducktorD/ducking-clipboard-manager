@@ -57,7 +57,7 @@ function createWindow() {
 
    win.loadURL(
       isDev
-         ? "http://localhost:3005"
+         ? "http://localhost:3000"
          : `file:///${__dirname}/../build/index.html`
    );
 
