@@ -1,6 +1,7 @@
 const { app, BrowserWindow, Tray, screen, dialog } = require('electron');
+const os = require('os');
 let path = require('path');
-const isDev = require("electron-is-dev");
+const isDev = require('electron-is-dev');
 
 // if I would like vibrancy/blur effect for window:
 // https://www.npmjs.com/package/@hxkuc/electron-vibrancy
@@ -8,6 +9,21 @@ const isDev = require("electron-is-dev");
 let win = undefined;
 let trayIcon = undefined;
 let browserWindowHidden = true;
+
+const platforms = {
+   WINDOWS: 'WINDOWS',
+   MAC: 'MAC',
+   LINUX: 'LINUX',
+}
+
+const platformsNames = {
+   win32: platforms.WINDOWS,
+   darwin: platforms.MAC,
+   linux: platforms.LINUX,
+}
+
+const currentPlatform = platformsNames[os.platform()];
+console.log(currentPlatform);
 
 function createWindow() {
 	win = new BrowserWindow({
