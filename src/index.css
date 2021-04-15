@@ -21,6 +21,8 @@ html, body, #root {
 }
 
 header {
+	-webkit-user-select: none;
+	-webkit-app-region: drag;
 	position: fixed;
 	top: 0;
 	width: 100%;

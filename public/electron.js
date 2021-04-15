@@ -2,6 +2,7 @@ const { app, BrowserWindow, Tray, screen, dialog } = require('electron');
 const os = require('os');
 let path = require('path');
 const isDev = require('electron-is-dev');
+const db = require('./db');
 
 // if I would like vibrancy/blur effect for window:
 // https://www.npmjs.com/package/@hxkuc/electron-vibrancy
@@ -41,10 +42,11 @@ function createWindow() {
          devTools: isDev ? true : false,
       },
       transparent: true,
-      frame: currentPlatform !== 'MAC',
+      // frame: currentPlatform !== 'MAC',
+      frame: false,
       hasShadow: false,
       movable: currentPlatform !== 'MAC',
-      alwaysOnTop: true,
+      alwaysOnTop: currentPlatform === 'MAC',
       fullscreenable: false,
    });
 
@@ -58,9 +60,9 @@ function createWindow() {
          win.hide();
          win.setVisibleOnAllWorkspaces(true);
 
-         trayIcon = isDev 
-         ? new Tray(`${path.join(__dirname, "../public/images/icon@1x.png")}`)
-         : new Tray(`${path.join(__dirname, "../build/images/icon@1x.png")}`);
+         trayIcon = isDev
+            ? new Tray(`${path.join(__dirname, "../public/images/icon@1x.png")}`)
+            : new Tray(`${path.join(__dirname, "../build/images/icon@1x.png")}`);
 
          // distinction between dev and prod in tray
          if (isDev) {
@@ -88,6 +90,10 @@ function createWindow() {
          break;
       }
       case 'WINDOWS' || 'LINUX': {
+
+         win.setTitle(`Ducking Clipboard Manager ${isDev ? '(Dev)' : ''}`);
+         win.removeMenu();
+
          break;
       }
       default: {
@@ -104,6 +110,24 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
+   const createTag = async (label) => {
+      const tag = await db.tags.insert({label});
+      return tag;
+   }
+
+   const getTags = async () => {
+      const proxies = await db.tags.find({});
+      return {proxies};
+   }
+
+   try {
+      createTag('This is my frist test 3').then(() => {
+         getTags().then(console.log);
+      });
+   } catch (err) {
+      console.error(err.message);
+   }
+
    try {
       createWindow();
    } catch (err) {
